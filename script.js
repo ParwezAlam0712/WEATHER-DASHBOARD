@@ -49,12 +49,14 @@ form.addEventListener('submit', async (e) => {
     }
 
     output.innerHTML = `
-      <h3>${data.name}, ${data.sys.country}</h3>
-      <p><strong>Temperature:</strong> ${data.main.temp} °C</p>
-      <p><strong>Condition:</strong> ${weatherIcon} ${data.weather[0].main}</p>
-      <p><strong>Humidity:</strong> ${data.main.humidity}%</p>
-      <p><strong>Wind Speed:</strong> ${data.wind.speed} m/s</p>
-    `;
+     <h3>${data.name}, ${data.sys.country}</h3>
+
+
+     <P><strong>🌡️ Temperature:</strong> ${data.main.temp} °C</p>
+     <p><strong>🌤️ Weather:</strong> ${data.weather[0].description} ${weatherIcon}</p>
+     <p><strong>💧 Humidity:</strong> ${data.main.humidity}%</p>
+     <p><strong>🌬️ Wind Speed:</strong> ${data.wind.speed} m/s</p>
+`;
   } catch (err) {
     output.textContent = `Error: ${err.message}`;
   }
