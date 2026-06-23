@@ -17,7 +17,7 @@ form.addEventListener('submit', async (e) => {
 
   try {
     const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
-    
+
 
     if (!res.ok) {
       throw new Error('City not found');
@@ -25,10 +25,33 @@ form.addEventListener('submit', async (e) => {
 
     const data = await res.json();
 
+    let weatherIcon = "🌤️";
+
+    switch (data.weather[0].main) {
+      case "Clear":
+        weatherIcon = "☀️";
+        break;
+      case "Clouds":
+        weatherIcon = "☁️";
+        break;
+      case "Rain":
+        weatherIcon = "🌧️";
+        break;
+      case "Thunderstorm":
+        weatherIcon = "⛈️";
+        break;
+      case "Snow":
+        weatherIcon = "❄️";
+        break;
+      case "Mist":
+        weatherIcon = "🌫️";
+        break;
+    }
+
     output.innerHTML = `
       <h3>${data.name}, ${data.sys.country}</h3>
       <p><strong>Temperature:</strong> ${data.main.temp} °C</p>
-      <p><strong>Condition:</strong> ${data.weather[0].main}</p>
+      <p><strong>Condition:</strong> ${weatherIcon} ${data.weather[0].main}</p>
       <p><strong>Humidity:</strong> ${data.main.humidity}%</p>
       <p><strong>Wind Speed:</strong> ${data.wind.speed} m/s</p>
     `;
