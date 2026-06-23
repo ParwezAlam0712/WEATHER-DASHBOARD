@@ -1,51 +1,110 @@
 /* style.css */
 body {
   font-family: sans-serif;
-  background: #eef2f7;
+  background: linear-gradient(135deg,
+      #87ceeb,
+      #b0e0e6,
+      #ffffff);
+
   display: flex;
   justify-content: center;
-  padding: 2rem;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
 }
 
-.container {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  width: 100%;
-  max-width: 420px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  text-align: center;
+.container{
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(10px);
+  border-radius:20px;
+  padding:2rem;
+  width:500px;
+  text-align:center;
+  box-shadow:0 10px 30px rgba(0,0,0,0.15);
+  position:relative;
 }
 
-input {
-  padding: 0.7rem;
-  width: 80%;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  outline: none;
+h1{
+  font-size:3rem;
+  color:#1e3a5f;
+  margin-bottom:25px;
 }
 
-button {
-  padding: 0.7rem 1.2rem;
-  background: #2563eb;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 15px;
+input{
+  width:85%;
+  padding:15px;
+  border:none;
+  border-radius:12px;
+  font-size:16px;
+  box-shadow:0 3px 10px rgba(0,0,0,0.1);
 }
 
-.weather-output {
-  margin-top: 1.5rem;
-  font-size: 0.95rem;
-  color: #333;
+input:focus{
+  outline:none;
+  box-shadow:0 0 15px rgba(37,99,235,0.4);
 }
 
-button:hover {
-  background: #1d4ed8;
+button{
+  padding:14px 28px;
+  border:none;
+  border-radius:12px;
+
+  background:linear-gradient(
+    135deg,
+    #2563eb,
+    #3b82f6
+  );
+
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+
+  transition:.3s;
+  display:block;
+  margin:20px auto;
+}
+
+.weather-output{
+  margin-top:25px;
+  text-align:center;
+}
+
+.weather-output p{
+  background:white;
+  margin:10px auto;
+  padding:12px;
+  border-radius:10px;
+  width:80%;
+}
+
+.weather-output h3{
+  font-size:2rem;
+  color:#1e3a5f;
+}
+
+.weather-icon{
+  font-size:60px;
+  margin-bottom:10px;
+}
+
+button:hover{
+  transform:translateY(-3px);
 }
 
 input:focus {
   border-color: #2563eb;
   box-shadow: 0 0 5px rgba(37, 99, 235, 0.3);
+}
+
+.cloud-icon{
+    position:absolute;
+    top:30px;
+    right:30px;
+    font-size:50px;
+    opacity:0.6;
+}
+
+.logo-weather{
+  font-size:50px;
+  margin-bottom:10px;
 }
